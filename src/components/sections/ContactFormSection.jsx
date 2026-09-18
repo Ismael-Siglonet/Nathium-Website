@@ -1,14 +1,24 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import Button from '../ui/Button'
 import ContactSection from './ContactSection'
 import { products, contactInfo } from '../../data/content'
 import styles from './ContactFormSection.module.css'
 
 function ContactFormSection() {
+  const [searchParams] = useSearchParams()
+  const requestedProduct = searchParams.get('produto')
+  const requestedSubject = searchParams.get('assunto')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [productId, setProductId] = useState('')
-  const [message, setMessage] = useState('')
+  const [productId, setProductId] = useState(() =>
+    products.some((item) => item.id === requestedProduct) ? requestedProduct : ''
+  )
+  const [message, setMessage] = useState(() => {
+    if (requestedSubject === 'carreiras') return 'Gostaria de saber mais sobre oportunidades de carreira na Nathium.'
+    if (requestedSubject === 'reclamacao') return 'Gostaria de apresentar uma reclamação e receber acompanhamento da equipa.'
+    return ''
+  })
 
   const handleSubmit = (event) => {
     event.preventDefault()

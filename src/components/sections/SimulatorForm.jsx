@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../ui/Button'
 import { products, primeRate } from '../../data/content'
 import styles from './SimulatorSection.module.css'
@@ -153,7 +154,12 @@ function SimulatorForm({ initialProductId = products[0].id }) {
           </div>
         </div>
 
-        <Button as="a" href="/contacto" variant="secondary" className={styles.cta}>
+        <Button
+          as={Link}
+          to={`/contacto?produto=${product.id}`}
+          variant="secondary"
+          className={styles.cta}
+        >
           Quero este crédito
         </Button>
 

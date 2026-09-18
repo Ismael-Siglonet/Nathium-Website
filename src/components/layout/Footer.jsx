@@ -1,4 +1,5 @@
 import { footerColumns, contactInfo } from "../../data/content";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo-white.png";
 import styles from "./Footer.module.css";
 
@@ -32,9 +33,9 @@ function Footer() {
               <ul className={styles.linkList}>
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className={styles.link}>
+                    <Link to={link.href} className={styles.link}>
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 import styles from './HighlightsSection.module.css'
 
 const images = import.meta.glob('../../assets/images/nathium/*.jpg', {
@@ -125,9 +126,9 @@ function HighlightsSection() {
         <div className={styles.carousel}>
           <div className={styles.track} ref={trackRef}>
             {extended.map((item, index) => (
-              <a
+              <Link
                 key={`${item.id}-${index}`}
-                href={`/produtos#${item.id}`}
+                to={`/produtos#${item.id}`}
                 className={`${styles.card} ${index === activeExt ? styles.cardActive : ''}`}
               >
                 <div className={styles.imageWrap}>
@@ -142,7 +143,7 @@ function HighlightsSection() {
                     <p className={styles.cardText}>{item.text}</p>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 

@@ -199,9 +199,9 @@ export const footerColumns = [
     title: 'Empresa',
     links: [
       { label: 'Sobre a Nathium', href: '/sobre' },
-      { label: 'A Nossa Equipa', href: '#' },
-      { label: 'Carreiras', href: '#' },
-      { label: 'Notícias', href: '#' },
+      { label: 'A Nossa História', href: '/sobre#historia' },
+      { label: 'Os Nossos Valores', href: '/sobre#valores' },
+      { label: 'Carreiras', href: '/contacto?assunto=carreiras' },
     ],
   },
   {
@@ -216,15 +216,7 @@ export const footerColumns = [
     links: [
       { label: 'Perguntas Frequentes', href: '/#faq' },
       { label: 'Contactos', href: '/contacto' },
-      { label: 'Reclamações', href: '#' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      { label: 'Termos e Condições', href: '#' },
-      { label: 'Política de Privacidade', href: '#' },
-      { label: 'Política de Cookies', href: '#' },
+      { label: 'Reclamações', href: '/contacto?assunto=reclamacao' },
     ],
   },
 ]

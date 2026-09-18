@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 import Button from '../ui/Button'
 import ProductCarousel from '../ui/ProductCarousel'
 import { products } from '../../data/content'
@@ -17,7 +18,7 @@ function ProductsSection() {
               Escolha onde quer avançar com taxas claras, prestações previsíveis e crédito
               responsável para proteger o seu dinheiro em cada decisão.
             </p>
-            <Button as="a" href="/contacto" variant="secondary">
+            <Button as={Link} to="/contacto" variant="secondary">
               Submeter um inquérito
             </Button>
           </div>
@@ -29,8 +30,8 @@ function ProductsSection() {
         <ProductCarousel
           items={products}
           renderItem={(product, index) => (
-            <a
-              href={`#${product.id}`}
+            <Link
+              to={`/produtos#${product.id}`}
               className={styles.card}
               data-reveal="item"
               style={{ '--reveal-index': Math.min(index, 5) }}
@@ -39,7 +40,7 @@ function ProductsSection() {
               <span className={styles.cardArrow} aria-hidden="true">
                 <FontAwesomeIcon icon={faArrowRight} />
               </span>
-            </a>
+            </Link>
           )}
         />
       </div>

@@ -26,7 +26,7 @@ const milestones = [
 
 function JourneySection() {
   return (
-    <section className={styles.section}>
+    <section id="historia" className={styles.section}>
       <div className={styles.inner}>
         <h2 className={styles.title} data-reveal="heading">
           Uma história de capital em movimento

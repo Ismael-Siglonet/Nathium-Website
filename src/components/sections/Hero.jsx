@@ -1,4 +1,5 @@
 import Button from '../ui/Button'
+import { Link } from 'react-router-dom'
 import Carousel from '../ui/Carousel'
 import heroMoney from '../../assets/images/nathium/hero-money.jpg'
 import creditoConsumo from '../../assets/images/nathium/credito-consumo.jpg'
@@ -33,7 +34,7 @@ function Hero() {
             Transforme planos em compras, mercadoria, protecção e crescimento com crédito rápido,
             transparente e pensado para Moçambique.
           </p>
-          <Button as="a" href="/produtos" variant="primary">
+          <Button as={Link} to="/contacto" variant="primary">
             Encontrar o meu crédito
           </Button>
         </div>

@@ -47,7 +47,7 @@ const values = [
 
 function MissionVisionValuesSection() {
   return (
-    <section className={styles.section}>
+    <section id="valores" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.pillars}>
           {pillars.map((pillar, index) => (

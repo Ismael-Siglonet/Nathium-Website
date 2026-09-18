@@ -1,8 +1,11 @@
 import PageHero from '../components/sections/PageHero'
 import ContactFormSection from '../components/sections/ContactFormSection'
+import { useLocation } from 'react-router-dom'
 import creditoPessoal from '../assets/images/nathium/credito-pessoal.jpg'
 
 function Contacto() {
+  const location = useLocation()
+
   return (
     <>
       <PageHero
@@ -11,7 +14,7 @@ function Contacto() {
         image={creditoPessoal}
         alt="Mulher a sorrir a trabalhar num portátil."
       />
-      <ContactFormSection />
+      <ContactFormSection key={location.search} />
     </>
   )
 }
