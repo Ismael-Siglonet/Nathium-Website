@@ -1,0 +1,45 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 24px 4px;
+  font-size: 17px;
+  font-weight: 500;
+  text-align: left;
+  color: #0a0a0a;
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: 22px;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+}
+
+.answer {
+  padding: 0 4px 24px;
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}

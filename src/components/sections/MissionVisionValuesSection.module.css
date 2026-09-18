@@ -1,0 +1,119 @@
+.section {
+  background: #fff;
+  color: #0a0a0a;
+  padding: var(--section-space) 0;
+}
+
+.inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid #e5e8eb;
+}
+
+@media (min-width: 700px) {
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillarIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(2, 54, 95, 0.1);
+  color: var(--color-primary);
+  font-size: 18px;
+}
+
+.pillarTitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.pillarText {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  max-width: 440px;
+}
+
+.valuesHeader {
+  margin-bottom: 32px;
+}
+
+.valuesTitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 700px) {
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .valuesGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.valueCard {
+  background: #f6f7f9;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.valueIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(2, 54, 95, 0.1);
+  color: var(--color-primary);
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.valueTitle {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.valueText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}

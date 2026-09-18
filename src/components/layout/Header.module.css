@@ -1,0 +1,176 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 10px var(--page-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0a0a0a;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.logoImg {
+  height: 44px;
+  width: auto;
+}
+
+.nav {
+  display: none;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.navLink {
+  position: relative;
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+.navLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.navLinkActive::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.desktopSimularButton {
+  display: none;
+}
+
+.menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(2, 54, 95, 0.08);
+  color: var(--color-primary);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .menuToggle {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px var(--page-gutter) calc(20px + env(safe-area-inset-bottom));
+  border-top: 1px solid #eee;
+  background: #fff;
+  max-height: calc(100dvh - 65px);
+  overflow-y: auto;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding-block: 12px;
+  }
+
+  .logoImg {
+    height: 52px;
+  }
+}
+
+@media (min-width: 900px) {
+  .inner {
+    padding-block: 16px;
+    gap: 24px;
+  }
+
+  .logoImg {
+    height: 58px;
+  }
+
+  .desktopSimularButton {
+    display: inline-flex;
+  }
+
+  .mobileNav {
+    display: none;
+  }
+}
+
+.mobileNavLink {
+  padding: 12px 4px;
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.mobileNavLink:hover {
+  color: var(--color-primary);
+}
+
+.mobileNav .navLinkActive {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.mobileSimularButton {
+  margin-top: 12px;
+  width: 100%;
+}

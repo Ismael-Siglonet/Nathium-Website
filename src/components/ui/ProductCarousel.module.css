@@ -1,0 +1,122 @@
+.carousel {
+  position: relative;
+  padding: 0 0 48px;
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 0 8px;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  flex: 0 0 min(82vw, 240px);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .item {
+    flex-basis: 270px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: calc(50% - 24px);
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: var(--color-primary);
+  box-shadow: 0 2px 10px rgba(2, 54, 95, 0.25);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  z-index: 2;
+}
+
+.arrow:hover {
+  background: var(--color-primary);
+  color: #fff;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+@media (min-width: 900px) {
+  .item {
+    flex-basis: calc((100% - 60px) / 4);
+  }
+
+  .prev {
+    left: -8px;
+  }
+
+  .next {
+    right: -8px;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-top: 12px;
+}
+
+.dot {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: rgba(2, 54, 95, 0.25);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.dot:hover {
+  background: transparent;
+}
+
+.dot:hover::after {
+  background: rgba(2, 54, 95, 0.5);
+}
+
+.dotActive {
+  background: transparent;
+}
+
+.dotActive::after {
+  background: var(--color-primary);
+  transform: scale(1.2);
+}
