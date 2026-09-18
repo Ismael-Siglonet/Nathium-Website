@@ -12,7 +12,7 @@ function Sobre() {
         title="Moçambique avança quando o dinheiro circula"
         subtitle="Conheça a instituição que transforma necessidades reais em capital claro, rápido e responsável."
         image={sobreEquipa}
-        alt="Três profissionais reunidos a conversar sobre negócios."
+        alt="Dois profissionais negros reunidos a conversar sobre negócios."
       />
       <AboutSection />
       <StatementSection />

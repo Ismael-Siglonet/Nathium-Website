@@ -8,11 +8,19 @@ import creditoHospitalar from '../../assets/images/nathium/credito-hospitalar.jp
 import styles from './Hero.module.css'
 
 const slides = [
-  { src: heroMoney, alt: 'Mãos a segurar notas de dólar abertas em leque.' },
-  { src: creditoConsumo, alt: 'Mulher sorridente com sacos de compras numa loja.' },
+  { src: heroMoney, alt: 'Mãos negras a contar notas junto a uma calculadora.' },
+  {
+    src: creditoConsumo,
+    alt: 'Mulher negra com um saco de compras.',
+    focalPoint: 'center 28%',
+  },
   { src: creditoPessoal, alt: 'Mulher a sorrir a trabalhar num portátil.' },
   { src: creditoImportacao, alt: 'Navio de contentores a ser carregado num porto.' },
-  { src: creditoHospitalar, alt: 'Médica com estetoscópio sentada à secretária.' },
+  {
+    src: creditoHospitalar,
+    alt: 'Médica negra com estetoscópio sentada à secretária.',
+    focalPoint: 'center 28%',
+  },
 ]
 
 function Hero() {

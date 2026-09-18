@@ -47,7 +47,8 @@ export const featureSections = [
     text: 'Ganhe poder de compra para resolver o que importa agora. Faça uma compra, cubra um imprevisto ou organize as despesas sem consumir todo o dinheiro disponível de uma vez.',
     cta: 'Ver o meu poder de compra',
     image: 'credito-consumo.jpg',
-    alt: 'Mulher sorridente com sacos de compras numa loja.',
+    alt: 'Mulher negra com um saco de compras.',
+    focalPoint: 'center 28%',
     imageSide: 'left',
   },
   {
@@ -80,7 +81,8 @@ export const featureSections = [
     text: 'Quando a saúde exige dinheiro agora, ganhe espaço para agir. Financie consultas, internamentos e cirurgias urgentes e concentre a sua energia na recuperação, não na conta imediata.',
     cta: 'Calcular apoio para saúde',
     image: 'credito-hospitalar.jpg',
-    alt: 'Médica com estetoscópio sentada à secretária.',
+    alt: 'Médica negra com estetoscópio sentada à secretária.',
+    focalPoint: 'center 28%',
     imageSide: 'right',
   },
   {
@@ -91,7 +93,8 @@ export const featureSections = [
     text: 'Apresente a garantia sem congelar o seu próprio dinheiro. Financie cauções de arrendamento, concursos ou contratos e mantenha as suas reservas livres para operar e crescer.',
     cta: 'Financiar a minha caução',
     image: 'credito-caucao.jpg',
-    alt: 'Aperto de mão a selar um acordo comercial.',
+    alt: 'Dois profissionais negros a conversar durante uma reunião de negócios.',
+    focalPoint: 'center 25%',
     imageSide: 'left',
   },
 ]

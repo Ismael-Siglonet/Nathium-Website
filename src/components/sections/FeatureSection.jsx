@@ -13,7 +13,7 @@ function resolveImage(filename) {
   return entry ? entry[1] : undefined
 }
 
-function FeatureSection({ id, dark, eyebrow, title, text, cta, image, alt, imageSide }) {
+function FeatureSection({ id, dark, eyebrow, title, text, cta, image, alt, imageSide, focalPoint }) {
   const [simulatorOpen, setSimulatorOpen] = useState(false)
   const sectionClass = `${styles.section} ${dark ? styles.dark : styles.light}`
   const reversed = imageSide === 'left'
@@ -34,7 +34,13 @@ function FeatureSection({ id, dark, eyebrow, title, text, cta, image, alt, image
           </Button>
         </div>
         <div className={styles.imageWrap} data-reveal="image">
-          <img src={resolveImage(image)} alt={alt} className={styles.image} loading="lazy" />
+          <img
+            src={resolveImage(image)}
+            alt={alt}
+            className={styles.image}
+            loading="lazy"
+            style={{ objectPosition: focalPoint || 'center' }}
+          />
         </div>
       </div>
       {simulatorOpen && (

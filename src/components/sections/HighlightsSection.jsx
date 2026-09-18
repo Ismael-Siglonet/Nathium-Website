@@ -17,7 +17,8 @@ const highlights = [
   {
     id: 'credito-consumo',
     image: 'credito-consumo.jpg',
-    alt: 'Mulher sorridente com sacos de compras numa loja.',
+    alt: 'Mulher negra com um saco de compras.',
+    focalPoint: 'center 28%',
     title: 'Mais poder de compra com menos espera',
     text: 'Coloque dinheiro nas prioridades de hoje sem esvaziar o orçamento de uma só vez.',
   },
@@ -38,7 +39,8 @@ const highlights = [
   {
     id: 'credito-hospitalar',
     image: 'credito-hospitalar.jpg',
-    alt: 'Médica com estetoscópio sentada à secretária.',
+    alt: 'Médica negra com estetoscópio sentada à secretária.',
+    focalPoint: 'center 28%',
     title: 'A conta médica não decide o seu futuro',
     text: 'Tenha capital para consultas, internamentos e cirurgias quando a prioridade é cuidar.',
   },
@@ -129,7 +131,12 @@ function HighlightsSection() {
                 className={`${styles.card} ${index === activeExt ? styles.cardActive : ''}`}
               >
                 <div className={styles.imageWrap}>
-                  <img src={resolveImage(item.image)} alt={item.alt} className={styles.image} />
+                  <img
+                    src={resolveImage(item.image)}
+                    alt={item.alt}
+                    className={styles.image}
+                    style={{ objectPosition: item.focalPoint || 'center' }}
+                  />
                   <div className={styles.overlay}>
                     <h3 className={styles.cardTitle}>{item.title}</h3>
                     <p className={styles.cardText}>{item.text}</p>

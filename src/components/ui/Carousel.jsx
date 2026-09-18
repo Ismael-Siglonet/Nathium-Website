@@ -24,6 +24,7 @@ function Carousel({ slides, interval = 5000 }) {
           src={slide.src}
           alt={slide.alt}
           className={`${styles.slide} ${i === index ? styles.active : ''}`}
+          style={{ objectPosition: slide.focalPoint || 'center' }}
         />
       ))}
 

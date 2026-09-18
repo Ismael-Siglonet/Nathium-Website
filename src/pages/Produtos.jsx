@@ -11,7 +11,7 @@ function Produtos() {
         title="Capital para cada oportunidade"
         subtitle="Oito formas de financiar compras, mercadoria, protecção, saúde e crescimento sem travar o seu fluxo de caixa."
         image={heroMoney}
-        alt="Mãos a segurar notas de dólar abertas em leque."
+        alt="Mãos negras a contar notas junto a uma calculadora."
       />
       <ProductsSection />
       {featureSections.map((section) => (
