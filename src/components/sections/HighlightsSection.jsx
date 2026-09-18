@@ -1,3 +1,6 @@
+import { useEffect, useRef, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import styles from './HighlightsSection.module.css'
 
 const images = import.meta.glob('../../assets/images/nathium/*.jpg', {
@@ -41,29 +44,128 @@ const highlights = [
   },
 ]
 
+// Loop illusion: clone the last item before the first, and the first after the
+// last, so there's always a neighbour to scroll into in both directions.
+const extended = [highlights[highlights.length - 1], ...highlights, highlights[0]]
+
+function toRealIndex(extIndex) {
+  return (extIndex - 1 + highlights.length) % highlights.length
+}
+
 function HighlightsSection() {
+  const trackRef = useRef(null)
+  const settleTimeout = useRef(null)
+  const [activeExt, setActiveExt] = useState(1)
+
+  const scrollToExt = (extIndex, behavior = 'smooth') => {
+    const track = trackRef.current
+    const card = track?.children[extIndex]
+    if (!track || !card) return
+    const offset = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2
+    track.scrollTo({ left: offset, behavior })
+  }
+
+  const next = () => scrollToExt(activeExt + 1)
+  const prev = () => scrollToExt(activeExt - 1)
+
+  const goToReal = (realIndex) => scrollToExt(realIndex + 1)
+
+  useEffect(() => {
+    // Start on the real first card (index 1 of the extended array), instantly.
+    scrollToExt(1, 'auto')
+  }, [])
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return undefined
+
+    const closestExtIndex = () => {
+      const center = track.scrollLeft + track.clientWidth / 2
+      let closest = 0
+      let closestDist = Infinity
+      Array.from(track.children).forEach((child, i) => {
+        const childCenter = child.offsetLeft + child.clientWidth / 2
+        const dist = Math.abs(childCenter - center)
+        if (dist < closestDist) {
+          closestDist = dist
+          closest = i
+        }
+      })
+      return closest
+    }
+
+    const onScroll = () => {
+      setActiveExt(closestExtIndex())
+
+      clearTimeout(settleTimeout.current)
+      settleTimeout.current = setTimeout(() => {
+        const current = closestExtIndex()
+        if (current === 0) {
+          scrollToExt(extended.length - 2, 'auto')
+        } else if (current === extended.length - 1) {
+          scrollToExt(1, 'auto')
+        }
+      }, 150)
+    }
+
+    track.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      track.removeEventListener('scroll', onScroll)
+      clearTimeout(settleTimeout.current)
+    }
+  }, [])
+
+  const activeReal = toRealIndex(activeExt)
+
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.title} data-reveal="heading">
-          Liquidez para viver, trabalhar e crescer
-        </h2>
+        <div className={styles.carousel}>
+          <div className={styles.track} ref={trackRef}>
+            {extended.map((item, index) => (
+              <a
+                key={`${item.id}-${index}`}
+                href={`/produtos#${item.id}`}
+                className={`${styles.card} ${index === activeExt ? styles.cardActive : ''}`}
+              >
+                <div className={styles.imageWrap}>
+                  <img src={resolveImage(item.image)} alt={item.alt} className={styles.image} />
+                  <div className={styles.overlay}>
+                    <h3 className={styles.cardTitle}>{item.title}</h3>
+                    <p className={styles.cardText}>{item.text}</p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
 
-        <div className={styles.grid}>
+          <button
+            type="button"
+            className={`${styles.arrow} ${styles.prev}`}
+            onClick={prev}
+            aria-label="Destaque anterior"
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <button
+            type="button"
+            className={`${styles.arrow} ${styles.next}`}
+            onClick={next}
+            aria-label="Próximo destaque"
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        </div>
+
+        <div className={styles.dots}>
           {highlights.map((item, index) => (
-            <a
+            <button
               key={item.id}
-              href={`/produtos#${item.id}`}
-              className={styles.card}
-              data-reveal="item"
-              style={{ '--reveal-index': index }}
-            >
-              <div className={styles.imageWrap}>
-                <img src={resolveImage(item.image)} alt={item.alt} className={styles.image} />
-              </div>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardText}>{item.text}</p>
-            </a>
+              type="button"
+              className={`${styles.dot} ${index === activeReal ? styles.dotActive : ''}`}
+              onClick={() => goToReal(index)}
+              aria-label={`Ir para destaque ${index + 1}`}
+            />
           ))}
         </div>
       </div>
