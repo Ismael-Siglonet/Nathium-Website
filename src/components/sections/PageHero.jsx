@@ -1,6 +1,6 @@
 import styles from './PageHero.module.css'
 
-function PageHero({ eyebrow, title, subtitle, image, alt }) {
+function PageHero({ eyebrow, title, subtitle, image, alt, imagePosition }) {
   return (
     <section className={styles.hero}>
       <div className={styles.inner}>
@@ -10,7 +10,12 @@ function PageHero({ eyebrow, title, subtitle, image, alt }) {
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
         </div>
         <div className={styles.imageWrap} data-reveal="image">
-          <img src={image} alt={alt} className={styles.image} />
+          <img
+            src={image}
+            alt={alt}
+            className={styles.image}
+            style={{ objectPosition: imagePosition || 'center' }}
+          />
         </div>
       </div>
     </section>
