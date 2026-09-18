@@ -20,7 +20,7 @@ function Hero() {
     <section className={styles.hero}>
       <div className={styles.inner}>
         <div className={styles.text} data-reveal="heading">
-          <h1 className={styles.title}>O dinheiro para fazer o próximo movimento</h1>
+          <h1 className={styles.title}>Crédito responsável disponível para quem quer crescer</h1>
           <p className={styles.subtitle}>
             Transforme planos em compras, mercadoria, protecção e crescimento com crédito rápido,
             transparente e pensado para Moçambique.
