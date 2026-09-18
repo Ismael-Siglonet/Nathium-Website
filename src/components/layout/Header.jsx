@@ -61,7 +61,7 @@ function Header() {
             onClick={openSimulator}
             className={styles.desktopSimularButton}
           >
-            Calcular Crédito
+            Simular Crédito
           </Button>
 
           <button
@@ -98,7 +98,7 @@ function Header() {
             onClick={openSimulator}
             className={styles.mobileSimularButton}
           >
-            Calcular Crédito
+            Simular Crédito
           </Button>
         </nav>
       )}
