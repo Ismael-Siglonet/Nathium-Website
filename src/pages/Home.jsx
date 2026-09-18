@@ -12,8 +12,8 @@ function Home() {
       <Hero />
       <PartnersSection />
       <AboutSection />
-      <ProductsSection />
       <SimulatorSection />
+      <ProductsSection />
       <HighlightsSection />
       <FaqSection />
     </>
